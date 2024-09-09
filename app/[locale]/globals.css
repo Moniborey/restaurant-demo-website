@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scrollbar-width: auto;
+}
+
+.spin:hover {
+  animation-name: spin;
+  animation-duration: 1700ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
+}
+
+@keyframes spin {
+  from {
+      transform:rotate(0deg);
+  }
+  to {
+      transform:rotate(360deg);
+  }
+}
+
+.scrollable-container {
+  overflow-y: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollable-container::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, Opera */
+}
+
+:root {
+  --bgColor:'#F4F2EF';
+  --textForBgWhiteColor:'#242E52';
+}
