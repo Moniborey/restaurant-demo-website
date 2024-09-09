@@ -11,7 +11,7 @@ export default function HeroSection() {
         muted
         loop
         autoPlay
-        className='object-cover brightness-75 object-center'
+        className='object-cover brightness-75 object-center size-full'
       >
         <source src='/video/3338747-uhd_4096_2160_25fps.mp4'/>
       </video>

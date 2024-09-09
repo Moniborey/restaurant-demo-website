@@ -18,7 +18,7 @@ export default function ParallaxSections({ children, parallaxBg, isVideo = false
             playsInline
             loop
             autoPlay
-            className='object-cover brightness-75 object-center'
+            className='object-cover brightness-75 object-center size-full'
           >
             <source src={parallaxBg || '/video/restaurantpromovideo.mp4'} />
           </video>
