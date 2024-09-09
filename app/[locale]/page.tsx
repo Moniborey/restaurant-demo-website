@@ -24,7 +24,7 @@ export default function Home({params:{locale}}:{params:{locale:string}}) {
       </section>
       <ParallaxSections
       isVideo
-      parallaxBg="/video/restaurantpromovideo.mp4"
+      parallaxBg="https://res.cloudinary.com/dr1dwfzro/video/upload/xjcd8vvp7zw0sjtqgyfm"
       >
         <div className="xl:p-10 p-5 xl:h-[550px] h-[450px] text-mainBg-color">
           <div className="size-full flex flex-col xl:justify-between">
