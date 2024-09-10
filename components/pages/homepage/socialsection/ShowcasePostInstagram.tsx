@@ -60,10 +60,16 @@ export default function ShowcasePostInstagram() {
       </ul>
       <ShowcaseSocialMobile
         data={placeholderData}
-        className='aspect-square size-[280px] md:size-[320px]'
+        className='aspect-square size-[250px] sm:size-[280px] md:size-[300px]'
+        spaceBetween={0}
         customBreakpoints={{
-          1200: {
-            slidesPerView: 3.5
+          788:{
+            slidesPerView:2.5,
+            spaceBetween:0
+          },
+          1100: {
+            slidesPerView: 3.5,
+            spaceBetween:0
           }
         }}
       />

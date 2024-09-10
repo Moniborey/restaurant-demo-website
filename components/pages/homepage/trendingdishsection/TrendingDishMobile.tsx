@@ -1,8 +1,8 @@
 import React, { Dispatch, SetStateAction } from 'react'
 import { TrendingDish } from './TrendingDish'
-import AccordianBody from '@/components/ui/AccordianBody'
 import Image from 'next/image'
 import { LeafIcon } from 'lucide-react'
+import AccordianBody from '@/components/ui/AccordianBody'
 
 export type TrendingDishChildProps = {
     data: TrendingDish[]

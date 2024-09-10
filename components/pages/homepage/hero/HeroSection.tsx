@@ -2,6 +2,7 @@ import { fraunces } from '@/fonts/font'
 import React from 'react'
 import LocationLink from './LocationLink'
 import { locations } from '@/libs/data'
+import { videoUrlCloudinary } from '@/constants'
 
 export default function HeroSection() {
   return (
@@ -13,7 +14,7 @@ export default function HeroSection() {
         autoPlay
         className='object-cover brightness-75 object-center size-full'
       >
-        <source src='https://res.cloudinary.com/dr1dwfzro/video/upload/rcszxcn85iyfhquqmhkr' />
+        <source src={videoUrlCloudinary + '/rcszxcn85iyfhquqmhkr'} />
       </video>
       <div className={`${fraunces.className} lg:space-y-4 space-y-1 absolute left-4 lg:left-8 bottom-[70%] lg:bottom-10`}>
         {
