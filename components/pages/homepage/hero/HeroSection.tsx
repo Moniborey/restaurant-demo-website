@@ -23,7 +23,8 @@ export default function HeroSection() {
           ))
         }
       </div>
-      <div className='bg-[#01499E] xl:p-3 p-2 rounded-sm absolute xl:bottom-7 xl:right-7 bottom-12 right-2'>
+      <h2 className='xl:text-base text-slate-500 text-xs absolute lg:bottom-5 bottom-12 lg:left-1/2 lg:-translate-x-1/2'>This website is only for showcasing purpose.</h2>
+      <div className='bg-[#01499E] xl:p-3 p-1 rounded-sm absolute xl:bottom-7 xl:right-7 bottom-12 right-2'>
         <h2 className={`${fraunces.className} text-mainBg-color xl:text-3xl text-lg uppercase`}>Promotion Deals</h2>
       </div>
     </section>

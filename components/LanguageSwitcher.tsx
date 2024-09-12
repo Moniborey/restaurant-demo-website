@@ -24,11 +24,11 @@ export default function LanguageSwitcher() {
 
   return (
     <div className='relative tracking-wide transition-all duration-300'>
-      <button disabled={isPending} onClick={() => setIsOpen(prev => !prev)} className='flex gap-[2px] items-center uppercase'>{locale}{isOpen ? <ArrowUp className='lg:size-5 size-4' /> : <ArrowDown className='lg:size-5 size-4' />}</button>
+      <button disabled={isPending} onClick={() => setIsOpen(prev => !prev)} className='flex xl:text-xl lg:text-lg text-base gap-[2px] items-center uppercase'>{locale}{isOpen ? <ArrowUp className='lg:size-5 size-4' /> : <ArrowDown className='lg:size-5 size-4' />}</button>
       <div className={cn('absolute hidden -bottom-5 lg:-bottom-7', isOpen && 'block')}>
         {locales.filter(value => value !== locale ).map(value =>
         (
-          <button className='uppercase' key={value} onClick={() => handleSelectChange(value)}>{value}</button>
+          <button className='uppercase xl:text-xl lg:text-lg text-base' key={value} onClick={() => handleSelectChange(value)}>{value}</button>
         ))}
       </div>
     </div>

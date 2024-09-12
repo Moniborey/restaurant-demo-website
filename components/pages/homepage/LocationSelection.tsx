@@ -9,41 +9,26 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 
 const test = [{
-    label:'placeholder store',
-    href:''
-},{
-    label:'placeholder store',
-    href:''
-},{
-    label:'placeholder store',
-    href:''
-},{
-    label:'placeholder store',
-    href:''
-},{
-    label:'placeholder store',
-    href:''
-},{
-    label:'placeholder store',
-    href:''
-},{
-    label:'placeholder store',
-    href:''
-},{
-    label:'placeholder store',
-    href:''
-},{
-    label:'placeholder store',
-    href:''
-},{
-    label:'placeholder store',
-    href:''
-},{
-    label:'placeholder store',
-    href:''
-},]
+    label: 'shop location',
+    href: '/kh/bkk'
+}, {
+    label: 'shop location',
+    href: '/kh/bkk'
+}, {
+    label: 'shop location',
+    href: '/kh/bkk'
+}, {
+    label: 'shop location',
+    href: '/kh/bkk'
+}, {
+    label: 'shop location',
+    href: '/kh/bkk'
+}, {
+    label: 'shop location',
+    href: '/kh/bkk'
+}]
 
-const colors = ['bg-forbgwhite-color','bg-[#BF6B21]','bg-[#01499E]']
+const colors = ['bg-forbgwhite-color', 'bg-[#BF6B21]', 'bg-[#01499E]']
 
 export default function LocationSelection() {
 
@@ -74,33 +59,34 @@ export default function LocationSelection() {
                                     <DotIcon className={cn('size-10 opacity-0 mx-auto', isActive && 'opacity-100')} />
                                     <h1 className={cn('whitespace-nowrap brightness-[65%] text-xl xl:text-4xl tracking-tight', isActive && 'brightness-100')}>{label}</h1>
                                 </button>
-                            )})
+                            )
+                        })
                     }
                 </div>
                 <div className='xl:mt-14 mt-8 relative w-full'>
                     <button onClick={handleToggleSelectShop} className='py-2 w-full border-b-2 flex justify-between transition-all border-white'>
                         <h1 className='brightness-75 xl:text-2xl'>Select Shop</h1>
-                        {isOpen ? <ArrowUp size={22}/> :<ArrowDown size={22} />}
+                        {isOpen ? <ArrowUp size={22} /> : <ArrowDown size={22} />}
                     </button>
                     {isOpen && <div className={cn('scrollable-container z-30 h-[260px] absolute w-full bg-white text-forbgwhite-color xl:text-2xl text-xl')}>
-                        {test.map((test,index) => (
+                        {test.map((test, index) => (
                             <Link
-                            key={index}
-                            href={test.href}
-                            className='block py-1 px-5 hover:bg-slate-100 transition-all'
+                                key={index}
+                                href={test.href}
+                                className='block py-1 px-5 hover:bg-slate-100 transition-all'
                             >
-                            {test.label}
+                                {test.label}
                             </Link>
                         ))}
                     </div>}
                 </div>
-                <div className='relative mt-10'>
+                <div className='relative mt-10 group'>
                     <Image
                         src={currentAvailableLocation[activeLocation].locationSelectIMG || '/3009c3150279919.62f6c24635263.png'}
                         alt='storeimg'
                         width={10000}
                         height={10000}
-                        className='w-full brightness-75 xl:h-[420px] h-[250px] md:h-[360px] object-cover'
+                        className='w-full brightness-75 h-[250px] md:h-[360px] xl:h-[420px] overflow-hidden object-cover'
                     />
                     <Link
                         href={''}
