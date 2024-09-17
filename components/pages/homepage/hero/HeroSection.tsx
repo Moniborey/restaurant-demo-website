@@ -4,7 +4,8 @@ import LocationLink from './LocationLink'
 import { locations } from '@/libs/data'
 import { videoUrlCloudinary } from '@/constants'
 
-export default function HeroSection() {
+export default function HeroSection({country}:{country:string}) {
+  const videoSourceUrl = country === 'kh' ? '/rcszxcn85iyfhquqmhkr' : '/xjcd8vvp7zw0sjtqgyfm'
   return (
     <section className='h-screen relative'>
       <video
@@ -14,12 +15,12 @@ export default function HeroSection() {
         autoPlay
         className='object-cover brightness-75 object-center size-full'
       >
-        <source src={videoUrlCloudinary + '/rcszxcn85iyfhquqmhkr'} />
+        <source src={videoUrlCloudinary + videoSourceUrl} />
       </video>
       <div className={`${fraunces.className} lg:space-y-4 space-y-1 absolute left-4 lg:left-8 bottom-[70%] lg:bottom-10`}>
         {
-          locations.map(({ href, isComingSoon, label }) => (
-            <LocationLink key={label} href={href} isComingSoon={isComingSoon} label={label} />
+          locations.map(({ href, isComingSoon, label, shortname }) => (
+            <LocationLink country={country} key={label} href={href} isComingSoon={isComingSoon} label={label} shortname={shortname}/>
           ))
         }
       </div>

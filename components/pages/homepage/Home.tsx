@@ -5,7 +5,7 @@ import ViewMenu from './ViewMenu';
 import ParallaxSections from '@/components/ui/ParallaxSection';
 import { videoUrlCloudinary } from '@/constants';
 import { fraunces } from '@/fonts/font';
-import { Link, locales } from '@/navigation';
+import { Link } from '@/navigation';
 import SocialSection from './socialsection/SocialSection';
 import TrendingDishSection from './trendingdishsection/TrendingDish';
 import ShopSection from './shopSection/ShopSection';
@@ -17,7 +17,7 @@ type HomeProps = {
 export default function Home({ country = 'kh' }: HomeProps) {
     return (
         <main>
-            <HeroSection />
+            <HeroSection country={country}/>
             <section className="flex flex-col xl:flex-row xl:min-h-[95dvh]">
                 <div className="w-full">
                     <LocationSelection />

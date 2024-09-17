@@ -2,15 +2,23 @@
 
 import React, { ButtonHTMLAttributes, useState } from 'react'
 import LanguageSwitcher from '../LanguageSwitcher'
-import { Book, BriefcaseBusiness, UserSquare2 } from 'lucide-react'
+import { Book, ChefHatIcon, UserSquare2 } from 'lucide-react'
 import OpenMenuContent from './OpenMenuContent'
 import { cn, isNotEven } from '@/libs/utils'
 import useScrollEffect from '@/hooks/useScrollEffect'
 import { dm_sans, space_mono } from '@/fonts/font'
 import { navLink } from '@/types/links'
 import { useTranslations } from 'next-intl'
-import { Link, usePathname } from '@/navigation'
+import { Link, locales, usePathname } from '@/navigation'
 import Image from 'next/image'
+import { useParams } from 'next/navigation'
+import { currentAvailableLocation } from '@/libs/data'
+
+// {
+//   label: "Career",
+//   href: "",
+//   icon: <BriefcaseBusiness size={20} className='group-hover:-translate-y-1 group-hover:rotate-12 transition-all'/>
+// }
 
 const navLinks: navLink[] = [{
   label: "Reservation",
@@ -20,10 +28,10 @@ const navLinks: navLink[] = [{
   label: "About Us",
   href: "",
   icon: <UserSquare2 size={20} className='group-hover:-translate-y-1 group-hover:rotate-12 transition-all'/>
-}, {
-  label: "Career",
-  href: "",
-  icon: <BriefcaseBusiness size={20} className='group-hover:-translate-y-1 group-hover:rotate-12 transition-all'/>
+},{
+  label:'Menu',
+  href:'/menu',
+  icon:<ChefHatIcon size={20} className='group-hover:-translate-y-1 group-hover:rotate-12 transition-all'/>
 }]
 
 export default function Navbar() {
@@ -32,12 +40,18 @@ export default function Navbar() {
   const isScrolled = useScrollEffect({ scrollY: 100 })
   const pathname = usePathname()
   const t = useTranslations('navbar')
+  const {country} = useParams()
+  const countryCode = country || 'kh' 
+  const countryText = currentAvailableLocation.find(c => c.shortname === country)?.label
   
   const handleMenuClick = () => {
     setIsMenuOpen(prev => !prev)
   }
-  
-  const isNotHomePage = pathname.split('/').length > 2
+
+  //check if homepage then navbar start with bgtransparent and have style toggle when scroll
+  const splittedPathname = pathname.split('/')
+  const pathnameToCheck = splittedPathname.length > 2 ? splittedPathname[2] : splittedPathname[1] 
+  const isNotHomePage =  pathnameToCheck.length === 0 ? false : !locales.includes(pathnameToCheck)
   const isShouldToggleStyle = isNotHomePage ? true : (isMenuOpen || isScrolled)
   const isShouldChangeNavBgColor = isNotHomePage ? true : isScrolled
 
@@ -45,9 +59,9 @@ export default function Navbar() {
     <>
       <header className={cn('w-full top-0 z-50 fixed bg-transparent lg:py-5 py-3 transition-all duration-300', isShouldChangeNavBgColor && 'bg-mainBg-color')}>
         <section className={cn('md:container relative px-mobile flex justify-between text-sm lg:text-lg xl:text-xl text-white', isShouldToggleStyle && 'text-forbgwhite-color')}>
-          <Link href={'/'} className={`${dm_sans.className} flex lg:gap-3 gap-2 items-center uppercase`}>
+          <Link target='_parent' href={'/'+country} className={`${dm_sans.className} flex lg:gap-3 gap-2 items-center uppercase`}>
             <h1 className='tracking-widest whitespace-nowrap text-lg lg:text-2xl saturate-150'>{t('companyname')}</h1>
-            <h2 className='text-[11px] tracking-tight font-normal saturate-150 pb-1'>Optional</h2>
+            <h2 className='text-[11px] tracking-tight font-normal saturate-150 pb-1 uppercase'>{countryText || 'Cambodia'}</h2>
           </Link>
           <nav className='flex bg-inherit items-center gap-5 lg:gap-14'>
             {/* //navbarLinks */}
@@ -55,10 +69,10 @@ export default function Navbar() {
               {
                 navLinks.map(({ href, icon, label }, index) => (
                   isNotEven(index)
-                    ? <li className='w-full' key={label}><Link className='w-full group text-center flex lg:gap-3 gap-2 items-center justify-center' href={href}>
+                    ? <li className='w-full' key={label}><Link className='w-full group text-center flex lg:gap-3 gap-2 items-center justify-center' href={countryCode + href}>
                       {icon} {label}
                     </Link></li>
-                    : <li key={label} className={cn('py-2 w-full border-x lg:border-x-0 border-inherit', isShouldToggleStyle && 'border-forbgwhite-color')}><Link className='w-full group items-center text-center flex lg:gap-3 gap-2 justify-center' href={href}>
+                    : <li key={label} className={cn('py-2 w-full border-x lg:border-x-0 border-inherit', isShouldToggleStyle && 'border-forbgwhite-color')}><Link className='w-full group items-center text-center flex lg:gap-3 gap-2 justify-center' href={countryCode + href}>
                       {icon} {label}
                     </Link></li>
                 ))
@@ -73,7 +87,7 @@ export default function Navbar() {
           </nav>
         </section>
       </header>
-      <OpenMenuContent isMenuOpen={isMenuOpen} />
+      <OpenMenuContent country={country as string} isMenuOpen={isMenuOpen} handleCloseMenu={() => setIsMenuOpen(false)}/>
     </>
   )
 }

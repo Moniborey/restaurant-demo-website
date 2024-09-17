@@ -10,22 +10,22 @@ import React, { useState } from 'react'
 
 const test = [{
     label: 'shop location',
-    href: '/kh/bkk'
+    href: '/kh/location/bkk'
 }, {
     label: 'shop location',
-    href: '/kh/bkk'
+    href: '/kh/location/bkk'
 }, {
     label: 'shop location',
-    href: '/kh/bkk'
+    href: '/kh/location/bkk'
 }, {
     label: 'shop location',
-    href: '/kh/bkk'
+    href: '/kh/location/bkk'
 }, {
     label: 'shop location',
-    href: '/kh/bkk'
+    href: '/kh/location/bkk'
 }, {
     label: 'shop location',
-    href: '/kh/bkk'
+    href: '/kh/location/bkk'
 }]
 
 const colors = ['bg-forbgwhite-color', 'bg-[#BF6B21]', 'bg-[#01499E]']

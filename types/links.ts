@@ -5,5 +5,6 @@ export type navLink = {
 }
 
 export type locationLink = Omit<navLink,'icon'> & {
-    isComingSoon:boolean
+    isComingSoon:boolean,
+    shortname:string
 }

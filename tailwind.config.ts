@@ -26,7 +26,7 @@ const config: Config = {
       colors:{
         'mainBg-color':"#F4F2EF",
         'forbgwhite-color':'#242E52'
-      }
+      },
     },
   },
   plugins: [],

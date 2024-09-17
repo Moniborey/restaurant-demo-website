@@ -1,11 +1,11 @@
 import { cn } from '@/libs/utils'
+import { Link } from '@/navigation'
 import { locationLink } from '@/types/links'
 import { ArrowRightIcon } from 'lucide-react'
-import Link from 'next/link'
 import React from 'react'
 
-export default function LocationLink({ href, isComingSoon, label }: locationLink) {
-    const activeLink = label === 'Cambodia'
+export default function LocationLink({ href, isComingSoon, label, shortname, country }: locationLink & {country:string}) {
+    const activeLink = shortname === country 
     return (
         <div>
             <Link

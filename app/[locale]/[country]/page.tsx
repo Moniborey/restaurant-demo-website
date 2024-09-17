@@ -1,18 +1,16 @@
 import React from 'react'
-import Home from '../page'
 import { unstable_setRequestLocale } from 'next-intl/server';
+import { locales } from '@/navigation';
+import { notFound } from 'next/navigation';
+import Home from '@/components/pages/homepage/Home';
 
 export default function pageDynamicHome({ params: { locale, country } }: { params: { locale: string, country: string } }) {
 
     unstable_setRequestLocale(locale);
-    const params = {
-        locale,
-        country
-    }
 
-    // if(!locales.includes(country)) notFound()
+    if (!locales.includes(country)) notFound()
 
     return (
-        <Home params={params} />
+        <Home country={country}/>
     )
 }
