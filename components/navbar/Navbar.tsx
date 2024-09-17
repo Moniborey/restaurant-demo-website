@@ -69,10 +69,10 @@ export default function Navbar() {
               {
                 navLinks.map(({ href, icon, label }, index) => (
                   isNotEven(index)
-                    ? <li className='w-full' key={label}><Link className='w-full group text-center flex lg:gap-3 gap-2 items-center justify-center' href={countryCode + href}>
+                    ? <li className='w-full' key={label}><Link className='w-full group text-center flex lg:gap-3 gap-2 items-center justify-center' href={'/' + countryCode + href}>
                       {icon} {label}
                     </Link></li>
-                    : <li key={label} className={cn('py-2 w-full border-x lg:border-x-0 border-inherit', isShouldToggleStyle && 'border-forbgwhite-color')}><Link className='w-full group items-center text-center flex lg:gap-3 gap-2 justify-center' href={countryCode + href}>
+                    : <li key={label} className={cn('py-2 w-full border-x lg:border-x-0 border-inherit', isShouldToggleStyle && 'border-forbgwhite-color')}><Link className='w-full group items-center text-center flex lg:gap-3 gap-2 justify-center' href={'/' + countryCode + href}>
                       {icon} {label}
                     </Link></li>
                 ))
