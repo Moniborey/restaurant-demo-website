@@ -10,10 +10,20 @@ import Footer from "@/components/footer/Footer";
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Creative Space',
-    default: "Demo Restaurant Website from Creative Space"
+    template: '%s | webdash',
+    default: "restaurant website from webdash"
   },
-  description: "This is a demo restaurant website showcase for clients created by creative space",
+  description: "This is a demo restaurant website showcase for clients created by webdash",
+  keywords:['restaurant','website'],
+  metadataBase: new URL('https://restaurant-demo-website.vercel.app/en'),
+  openGraph: {
+    title: 'restaurant website from webdash',
+    description: 'This is a demo restaurant website showcase for clients created by webdash',
+    url: 'https://restaurant-demo-website.vercel.app/en',
+    siteName: 'restaurant website from webdash',
+    images: ['restaurantdemowebsite.png'],
+    type: 'website',
+  },
 };
 
 export function generateStaticParams() {
