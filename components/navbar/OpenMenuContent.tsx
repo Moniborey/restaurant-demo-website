@@ -17,7 +17,7 @@ export default function OpenMenuContent({ isMenuOpen, handleCloseMenu, country='
     href: `/${country}/menu`
   }, {
     label: 'Career',
-    href: ""
+    href: "/not-available"
   }, {
     label: '[Other Link]',
     href: ""
@@ -42,7 +42,7 @@ export default function OpenMenuContent({ isMenuOpen, handleCloseMenu, country='
       <div className={cn('opacity-0 grid lg:grid-cols-2 m-4 lg:m-28 inset-0 transition-all duration-500 ease-in-out -translate-y-6 absolute top-[84px]', isMenuOpen && 'opacity-100 translate-y-0')}>
         <div className='flex flex-col gap-10 lg:gap-0'>
           <div className='lg:flex-1'>
-            <StoreLocationSwitcher />
+            <StoreLocationSwitcher country={country}/>
           </div>
           <div className={`${fraunces.className} grid lg:grid-cols-2 gap-2 font-normal`}>
             <div className='lg:space-y-3 space-y-2'>

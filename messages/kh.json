@@ -3,5 +3,14 @@
     "translatelabel":"ខ្មែរ",
     "navbar":{
         "companyname":"ឈ្មោះក្រុម​ហ៊ុន"
+    },
+    "hero":{
+        "Cambodia":"កម្ពុជា",
+        "United States":"សហរដ្ឋអាមេរិក",
+        "Vietnam":"វៀតណាម",
+        "Thailand":"ថៃ"
+    },
+    "notpartdemo":{
+        "text":"ទំព័រមិនមែនជាផ្នែកនៃការបង្ហាញសាកល្បងទេ ។"
     }
 }

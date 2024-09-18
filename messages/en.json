@@ -3,5 +3,14 @@
     "translatelabel":"en",
     "navbar":{
         "companyname":"Company Name"
+    },
+    "hero":{
+        "Cambodia":"Cambodia",
+        "United States":"United States",
+        "Vietnam":"Vietnam",
+        "Thailand":"Thailand"
+    },
+    "notpartdemo":{
+        "text":"Page is not part of the demo showcase."
     }
 }

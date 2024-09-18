@@ -2,21 +2,21 @@
 
 import { Link } from '@/navigation'
 import { ArrowDown, ArrowUp } from 'lucide-react'
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import AccordianBody from './ui/AccordianBody'
 
-export default function StoreLocationSwitcher() {
+export default function StoreLocationSwitcher({country}:{country:string}) {
 
     const [isOpen, setIsOpen] = useState(false)
-    const contentHeight = useRef<HTMLDivElement | null>(null)
-    const accordianHeight = contentHeight.current ? contentHeight.current.scrollHeight : 0
 
     const handleToggle = () => setIsOpen(prev => !prev)
+
+    const isCambodia = country === 'kh'
 
     return (
         <div className='relative overflow-hidden lg:text-2xl text-lg w-fit'>
             <button onClick={handleToggle} className='flex lg:gap-5 gap-4 items-center'>
-                <h1>Cambodia</h1>
+                <h1>{isCambodia ? 'Cambodia' : 'United State'}</h1>
                 {isOpen ? <ArrowUp /> : <ArrowDown />}
             </button>
             <AccordianBody
@@ -25,22 +25,11 @@ export default function StoreLocationSwitcher() {
             >
                 <>
                 <Link
-                    href={''}
+                    href={isCambodia ? '/en' : '/kh'}
+                    target='_parent'
                     className='block lg:mt-1 mt-2'
                 >
-                    <h1>Vietnam</h1>
-                </Link>
-                <Link
-                    href={''}
-                    className='block lg:mt-1 mt-2'
-                >
-                    <h1>United State</h1>
-                </Link>
-                <Link
-                    href={''}
-                    className='block lg:mt-1 mt-2'
-                >
-                    <h1>Thailand</h1>
+                    <h1>{isCambodia ? 'United State' : 'Cambodia'}</h1>
                 </Link>
                 </>
             </AccordianBody>

@@ -22,11 +22,11 @@ import { currentAvailableLocation } from '@/libs/data'
 
 const navLinks: navLink[] = [{
   label: "Reservation",
-  href: "",
+  href: "/not-available",
   icon: <Book size={20} className='group-hover:-translate-y-1 group-hover:rotate-12 transition-all'/>
 }, {
   label: "About Us",
-  href: "",
+  href: "/not-available",
   icon: <UserSquare2 size={20} className='group-hover:-translate-y-1 group-hover:rotate-12 transition-all'/>
 },{
   label:'Menu',
@@ -59,7 +59,7 @@ export default function Navbar() {
     <>
       <header className={cn('w-full top-0 z-50 fixed bg-transparent lg:py-5 py-3 transition-all duration-300', isShouldChangeNavBgColor && 'bg-mainBg-color')}>
         <section className={cn('md:container relative px-mobile flex justify-between text-sm lg:text-lg xl:text-xl text-white', isShouldToggleStyle && 'text-forbgwhite-color')}>
-          <Link target='_parent' href={'/'+country} className={`${dm_sans.className} flex lg:gap-3 gap-2 items-center uppercase`}>
+          <Link target='_parent' href={'/'+countryCode} className={`${dm_sans.className} flex lg:gap-3 gap-2 items-center uppercase`}>
             <h1 className='tracking-widest whitespace-nowrap text-lg lg:text-2xl saturate-150'>{t('companyname')}</h1>
             <h2 className='text-[11px] tracking-tight font-normal saturate-150 pb-1 uppercase'>{countryText || 'Cambodia'}</h2>
           </Link>
@@ -67,15 +67,17 @@ export default function Navbar() {
             {/* //navbarLinks */}
             <ul className={cn(`flex items-center border-t lg:border-0 transition-all duration-300 border-mainBg-color bg-inherit lg:gap-10 fixed z-20 lg:static bottom-0 lg:bg-transparent left-0 right-0 ${space_mono.className} text-inherit tracking-wide whitespace-nowrap uppercase`, isShouldToggleStyle && 'bg-mainBg-color text-forbgwhite-color border-forbgwhite-color')}>
               {
-                navLinks.map(({ href, icon, label }, index) => (
-                  isNotEven(index)
-                    ? <li className='w-full' key={label}><Link className='w-full group text-center flex lg:gap-3 gap-2 items-center justify-center' href={'/' + countryCode + href}>
-                      {icon} {label}
-                    </Link></li>
-                    : <li key={label} className={cn('py-2 w-full border-x lg:border-x-0 border-inherit', isShouldToggleStyle && 'border-forbgwhite-color')}><Link className='w-full group items-center text-center flex lg:gap-3 gap-2 justify-center' href={'/' + countryCode + href}>
-                      {icon} {label}
-                    </Link></li>
-                ))
+                navLinks.map(({ href, icon, label }, index) => {
+                  const hrefFormatted = href === '/not-available' ? href : '/' + countryCode + href
+                  return (
+                    isNotEven(index)
+                      ? <li className='w-full' key={label}><Link className='w-full group text-center flex lg:gap-3 gap-2 items-center justify-center' href={hrefFormatted}>
+                        {icon} {label}
+                      </Link></li>
+                      : <li key={label} className={cn('py-2 w-full border-x lg:border-x-0 border-inherit', isShouldToggleStyle && 'border-forbgwhite-color')}><Link className='w-full group items-center text-center flex lg:gap-3 gap-2 justify-center' href={hrefFormatted}>
+                        {icon} {label}
+                      </Link></li>
+                  )})
               }
             </ul>
             <LanguageSwitcher />
