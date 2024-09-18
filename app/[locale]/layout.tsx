@@ -15,11 +15,11 @@ export const metadata: Metadata = {
   },
   description: "This is a demo restaurant website showcase for clients created by webdash",
   keywords:['restaurant','website'],
-  metadataBase: new URL('https://restaurant-demo-website.vercel.app/en'),
+  metadataBase: new URL('https://restaurant-demo-website.vercel.app'),
   openGraph: {
     title: 'restaurant website from webdash',
     description: 'This is a demo restaurant website showcase for clients created by webdash',
-    url: 'https://restaurant-demo-website.vercel.app/en',
+    url: 'https://restaurant-demo-website.vercel.app',
     siteName: 'restaurant website from webdash',
     images: ['restaurantdemowebsite.png'],
     type: 'website',
