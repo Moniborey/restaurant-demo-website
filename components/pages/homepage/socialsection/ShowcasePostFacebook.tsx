@@ -6,15 +6,15 @@ import ShowcaseSocialMobile from './ShowcaseSocialMobile'
 const placeholderData = [{
   img: '/458787424_918899536947466_8816989798225093099_n.jpg',
   href: '',
-  desc: 'placeholder desc'
+  desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam harum dolorem sapiente voluptate iusto reprehenderit libero.'
 }, {
   img: '/458787424_918899536947466_8816989798225093099_n.jpg',
   href: '',
-  desc: 'placeholder desc'
+  desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam harum dolorem sapiente voluptate iusto reprehenderit libero.'
 }, {
   img: '/pizza.jpg',
   href: '',
-  desc: 'placeholder desc'
+  desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam harum dolorem sapiente voluptate iusto reprehenderit libero.'
 }]
 
 export default function ShowcasePostFacebook() {

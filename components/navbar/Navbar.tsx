@@ -2,7 +2,7 @@
 
 import React, { ButtonHTMLAttributes, useState } from 'react'
 import LanguageSwitcher from '../LanguageSwitcher'
-import { Book, ChefHatIcon, UserSquare2 } from 'lucide-react'
+import { Book, ChefHatIcon, Map, UserSquare2 } from 'lucide-react'
 import OpenMenuContent from './OpenMenuContent'
 import { cn, isNotEven } from '@/libs/utils'
 import useScrollEffect from '@/hooks/useScrollEffect'
@@ -25,9 +25,9 @@ const navLinks: navLink[] = [{
   href: "/not-available",
   icon: <Book size={20} className='group-hover:-translate-y-1 group-hover:rotate-12 transition-all'/>
 }, {
-  label: "About Us",
-  href: "/not-available",
-  icon: <UserSquare2 size={20} className='group-hover:-translate-y-1 group-hover:rotate-12 transition-all'/>
+  label: "Location",
+  href: "/location",
+  icon: <Map size={20} className='group-hover:-translate-y-1 group-hover:rotate-12 transition-all'/>
 },{
   label:'Menu',
   href:'/menu',
@@ -43,6 +43,8 @@ export default function Navbar() {
   const {country} = useParams()
   const countryCode = country || 'kh' 
   const countryText = currentAvailableLocation.find(c => c.shortname === country)?.label
+
+  const handleCloseMenu = () => setIsMenuOpen(false)
   
   const handleMenuClick = () => {
     setIsMenuOpen(prev => !prev)
@@ -71,10 +73,10 @@ export default function Navbar() {
                   const hrefFormatted = href === '/not-available' ? href : '/' + countryCode + href
                   return (
                     isNotEven(index)
-                      ? <li className='w-full' key={label}><Link className='w-full group text-center flex lg:gap-3 gap-2 items-center justify-center' href={hrefFormatted}>
+                      ? <li className='w-full' key={label}><Link onClick={handleCloseMenu} className='w-full group text-center flex lg:gap-3 gap-2 items-center justify-center' href={hrefFormatted}>
                         {icon} {label}
                       </Link></li>
-                      : <li key={label} className={cn('py-2 w-full border-x lg:border-x-0 border-inherit', isShouldToggleStyle && 'border-forbgwhite-color')}><Link className='w-full group items-center text-center flex lg:gap-3 gap-2 justify-center' href={hrefFormatted}>
+                      : <li key={label} className={cn('py-2 w-full border-x lg:border-x-0 border-inherit', isShouldToggleStyle && 'border-forbgwhite-color')}><Link onClick={handleCloseMenu} className='w-full group items-center text-center flex lg:gap-3 gap-2 justify-center' href={hrefFormatted}>
                         {icon} {label}
                       </Link></li>
                   )})
