@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+I built this restaurant frontend website to learn and test about Nextjs SSG and also in hope to get attention from restaurant owners to build a website.😁   
+
 ## Getting Started
 
 First, run the development server:
