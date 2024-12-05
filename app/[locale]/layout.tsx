@@ -10,17 +10,17 @@ import Footer from "@/components/footer/Footer";
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | webdash',
-    default: "restaurant website from webdash"
+    template: '%s | webdot',
+    default: "restaurant website from webdot"
   },
-  description: "This is a demo restaurant website showcase for clients created by webdash",
+  description: "This is a demo restaurant website showcase for clients created by webdot",
   keywords:['restaurant','website'],
   metadataBase: new URL('https://restaurant-demo-website.vercel.app'),
   openGraph: {
-    title: 'restaurant website from webdash',
-    description: 'This is a demo restaurant website showcase for clients created by webdash',
+    title: 'restaurant website from webdot',
+    description: 'This is a demo restaurant website showcase for clients created by webdot',
     url: 'https://restaurant-demo-website.vercel.app',
-    siteName: 'restaurant website from webdash',
+    siteName: 'restaurant website from webdot',
     images: ['restaurantdemowebsite.png'],
     type: 'website',
   },
